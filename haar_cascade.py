@@ -18,7 +18,7 @@ while True:
         roi_color = frame[y:y+h, x:x+w]
         eyes = eyes_cascade.detectMultiScale(roi_gray)
         for xe, ye, we, he in eyes:
-            cv.rectangle(roi_color, (xe, ye), (xe+we, ye+he), [255, 0, 0], 5)
+            cv.rectangle(frame, (x+xe, y+ye), (x+xe+we, y+ye+he), [255, 0, 0], 5)
 
     cv.imshow('res', frame)
     if cv.waitKey(5) & 0xff == 27:
