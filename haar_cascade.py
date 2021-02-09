@@ -4,13 +4,13 @@ import cv2 as cv
 face_cascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml')
 eyes_cascade = cv.CascadeClassifier('haarcascade_eye.xml')
 
-cap = cv.VideoCapture(1)
+cap = cv.VideoCapture(0)
 
 while True:
     _, frame = cap.read()
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
     gray = cv.blur(gray, (3,3))
-    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+    faces = face_cascade.detectMultiScale(gray, 1.2, 5)
 
     for x, y, w, h in faces:
         cv.rectangle(frame, (x, y), (x+w, y+h), [0, 0, 255], 5)
