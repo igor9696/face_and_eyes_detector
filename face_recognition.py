@@ -5,7 +5,7 @@ import os
 
 face_cascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml')
 # creating directory to load training images
-output_folder = 'C:\\Users\\igur\\PycharmProjects\\opencv_training\\face_detection\\faces\\is\\'
+output_folder = 'C:\\Users\\igur\\PycharmProjects\\opencv_training\\face_detection\\faces\\Igor\\'
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
 
@@ -24,7 +24,7 @@ def generate_face_data(frames_number=50):
             cv.rectangle(frame, (x, y), (x + w, y + h), [0, 0, 255], 4)
             face_images = cv.resize(gray[y:y + h, x:x + w], (200, 200))
             cv.imshow('faces', face_images)
-            # save every single image into 'is' folder
+            # save every single image into 'Igor' folder
             output_image = '%s%d.png' % (output_folder, count)
             cv.imwrite(output_image, face_images)
             count += 1
